@@ -1,0 +1,75 @@
+<!-- Contact Section -->
+<div class="w3-container w3-padding-large" style="margin-bottom:32px">
+    <div class="row">
+      <div class="col-md-8">
+        <mat-card class="example-card">
+          <h4>Please fill your details:</h4>
+          <br>
+          <mat-card-content>
+          <form target="_blank" [formGroup]="userContact" ngSubmit="OnSubmit()">
+            <mat-form-field appearance="fill" class="col-md-12">
+              <mat-label>First Name:</mat-label>
+              <input matInput placeholder="First Name"  id="firstName" formControlName="firstName" type="text" required>
+              <mat-error *ngIf="userContact.controls['firstName'].hasError('required')">
+                First Name is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+            <br>
+            <br>
+            <mat-form-field appearance="fill" class="col-md-12">
+              <mat-label>Last Name:</mat-label>
+              <input matInput placeholder="Last Name"  id="lastName" formControlName="lastName" type="text" required>
+              <mat-error *ngIf="userContact.controls['lastName'].hasError('required')">
+                Last Name is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+            <br>
+            <br>
+            <mat-form-field appearance="fill" class="col-md-12">
+              <mat-label>Email:</mat-label>
+              <input matInput placeholder="Contact Email"  id="email" formControlName="email" type="email" required>
+              <mat-error *ngIf="userContact.controls['email'].hasError('required')">
+                Email is <strong>required</strong>
+              </mat-error>
+              <mat-error *ngIf="userContact.controls['email'].hasError('email')">
+                Enter valid <strong>email</strong>
+              </mat-error>
+            </mat-form-field>
+            <br>
+            <br>
+            <mat-form-field appearance="fill" class="col-md-12">
+              <mat-label>Message:</mat-label>
+              <input matInput placeholder="Short Message"  id="message" formControlName="message" type="text" required>
+              <mat-error *ngIf="userContact.controls['message'].hasError('required')">
+                Message is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+            <br>
+            <br>
+            <mat-form-field appearance="fill" class="col-md-12">
+              <mat-label>State</mat-label>
+              <select matNativeControl>
+                <option value="minnesota">Minnesota</option>
+                <option value="texas">TEXAS</option>
+                <option value="atlanta">Atlanta</option>
+                <option value="alaska">Alaska</option>
+              </select>
+            </mat-form-field>
+            <br>
+            <button  mat-raised-button color="primary" [disabled]="!userContact.valid" (click)="submitForm()"><i class="fa fa-paper-plane w3-margin-right"></i>Send Message</button>
+            <button  mat-raised-button color="accent" (click)="updateContact()" style="margin-left:50px;"><i class="fas fa-undo w3-margin-right"></i>Reset Message</button>
+          </form>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="col-md-4">
+        <mat-card class="example-card">
+          <h4>Contact Me</h4>
+          <mat-card-content>
+              <p><i class="fas fa-at w3-text-light-grey" style="color:black !important;padding:10px;font-size:22px;"></i>email@gmail.com</p>
+              <p><i class="fas fa-map-marker-alt w3-text-light-grey" style="color:black !important;padding:10px;font-size:22px;"></i>Eden Prairie, MN</p>
+          </mat-card-content>
+          </mat-card>
+      </div>
+    </div>
+    </div>
