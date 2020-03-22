@@ -1,0 +1,35 @@
+<div class="w3-container w3-padding-large" style="margin-bottom:32px;">
+    <h2>My Subscribers</h2>
+    <ul class="users">
+      <li *ngFor="let user of usersList">
+        <div (click)="editUser(user);" style="float: left;">
+          <span class="users-list">{{user.name}}</span>
+          <span class="users-list">{{user.email}}</span>
+        </div>   
+        <div>
+          <span class="users-list" (click)="deleteUser(user)">Delete</span>
+        </div>    
+      </li>
+    </ul>
+    <button  mat-raised-button color="primary" (click)="addUsers=true"><i class="fas fa-plus-circle w3-margin-right"></i>Add Users</button>
+    <br>
+    <br>
+    <div *ngIf="addUsers || isUpdateUser">
+      <mat-form-field appearance="fill" class="col-md-6">
+        <mat-label>Name:</mat-label>
+        <input matInput placeholder="Your Name" [(ngModel)]="name"  id="name" type="text" required>
+      </mat-form-field>
+      <br>
+      <br>
+      <mat-form-field appearance="fill" class="col-md-6">
+        <mat-label>Email:</mat-label>
+        <input matInput placeholder="Your email" [(ngModel)]="email"   id="email" type="text" required>
+      </mat-form-field>
+    </div>
+    
+    <br>
+    <br>
+    <button *ngIf="addUsers" mat-raised-button style="background-color: #4CAF50;margin-right:20px;color:#fff;" (click)="addNewUsers()"><i class="fas fa-check w3-margin-right"></i>Save Users</button>
+    <button *ngIf="isUpdateUser" mat-raised-button style="background-color: #4CAF50;margin-right:20px;color:#fff;" (click)="updateUser()"><i class="fas fa-check w3-margin-right"></i>Update User</button>
+    <button *ngIf="addUsers || isUpdateUser" mat-raised-button style="background-color: #FF7043;margin-right:20px;color:#fff;" (click)="cancelNewUsers()"><i class="fas fa-check w3-margin-right"></i>Cancel</button>
+    </div>

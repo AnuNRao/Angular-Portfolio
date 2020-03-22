@@ -19,6 +19,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatDialogModule} from '@angular/material/dialog';
 import { InfoDialogComponent } from './contact/info-dialog/infodialog.component';
 import {HttpClientModule} from '@angular/common/http';
+import { MyEditorComponent } from './my-editor/my-editor.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import {HttpClientModule} from '@angular/common/http';
     ContactComponent,
     MyskillsComponent,
     HomeComponent,
-    InfoDialogComponent
+    InfoDialogComponent,
+    MyEditorComponent
   ],
   imports: [
     BrowserModule,
